@@ -184,10 +184,10 @@ with col_fig:
     ))
 with col_text:
     st.markdown("""
-    <div style='font-size:13px; line-height:1.8;'>
-        <p>あ：安定マッチングとは、どの2人も相手を変えたいと思わない状態</p>
-        <p>い：満足度は選好順位に基づき 3〜0 で表示</p>
-        <p>う：青い線は安定マッチング成立時に出現</p>
-        <p>え：ここは説明用の自由スペースです</p>
+    <div style='font-size:20px; line-height:1.8;'>
+        <p>安定マッチングとは、どの2人も相手を変えたいと思わない状態</p>
+        <p>満足度は選好順位に基づき 3〜0 で表示</p>
+        <p>青い線は安定マッチング成立時に出現</p>
+        <p>ここは説明用の自由スペースです</p>
     </div>
     """, unsafe_allow_html=True)
