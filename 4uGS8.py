@@ -171,10 +171,10 @@ msg = (
 st.markdown(msg, unsafe_allow_html=True)
 
 if len(st.session_state.free_women) == 0:
-    st.markdown("<div style='font-size:20px; line-height:1.0;'>🎉 安定マッチング完了</div>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size:20px; line-height:1.0; color:blue;'><br>🎉 安定マッチング完成</div>", unsafe_allow_html=True)
 
 # ✅ 図と説明のカラム比率 1.5:1 に設定
-col_fig, col_text = st.columns([1.5, 1])
+col_fig, col_text = st.columns([1.5, 1.2])
 with col_fig:
     st.pyplot(draw_state_with_proposals(
         matching,
@@ -182,12 +182,37 @@ with col_fig:
         st.session_state.men_prefs,
         st.session_state.women_prefs
     ))
+#<!-- border-bottom: 10px solid #aaa;'-->    
 with col_text:
     st.markdown("""
-    <div style='font-size:20px; line-height:1.8;'>
-        <p>安定マッチングとは、どの2人も相手を変えたいと思わない状態</p>
+    <div style='font-size:30px; line-height:1.3; 
+background: linear-gradient(transparent 70%, #4582b4 1%);'>
+GS（Gale-Shapley法）法</div>
+<br>
+<p> 女性（片側グループ）側が，第1希望選好から順に男性に申し込み，
+男性はより好ましい相手が来るまでは「仮キープ」，キープが
+破棄された女性は，次の反復で次点の男性に申し込む方法．
+<font style="color:blue">安定マッチング</font>が求まる．</p>
+
+<p><font color="red">数理的な知見をいかして</font>，
+全マッチングの組合せではなく，<font color="blue">効率的に望ましい組合せ</font>を求める方法⇒アルゴリズムと呼ばれる</p>
+
+<p>GS法のステップ数の上限(数 n)：
+<br>
+（nの2乗）＜＜（全マッチング数はnの階乗 n! ）
+<ul>
+<li> n=5で n<sup>2</sup>=25　 <<　 
+n! =120
+<li> n=20で n<sup>2</sup>=400　 <<　 n! =約243京
+</ul>
+GS法は，圧倒的に少ないステップで終了
+</p>
+
+<p><font style="color:red">提案側（女性）にとり満足度最大の</font>安定マッチングが
+<font style="color:red">必ず</font>見つかる
+<!--        <p>安定マッチングとは、どの2人も相手を変えたいと思わない状態</p>
         <p>満足度は選好順位に基づき 3〜0 で表示</p>
         <p>青い線は安定マッチング成立時に出現</p>
-        <p>ここは説明用の自由スペースです</p>
-    </div>
+        <p>ここは説明用の自由スペースです</p>-->
+</p></div>
     """, unsafe_allow_html=True)
